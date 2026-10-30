@@ -1,0 +1,21 @@
+shipment_id,scenario,has_certificate,expected_route,expected_consistency_issues,expected_issues,expected_hs6_by_line,ai_dependent
+TEST-03,Clean,yes,ready_for_broker,0,none,1:940521 | 2:950300,no
+TEST-04,Clean,yes,ready_for_broker,0,none,1:610910 | 2:620342 | 3:420221,no
+TEST-05,"Clean, single line",yes,ready_for_broker,0,none,1:847130,no
+TEST-06,Clean,yes,ready_for_broker,0,none,1:940360 | 2:090111,no
+TEST-07,"Clean, low unit prices",yes,ready_for_broker,0,none,1:848210 | 2:392321,no
+TEST-08,"Clean, 4 lines",yes,ready_for_broker,0,none,1:851830 | 2:940521 | 3:950300 | 4:610910,no
+TEST-09,"Clean, no certificate of origin",no,ready_for_broker,0,none,1:420221 | 2:620342,no
+TEST-10,"Clean, single line",yes,ready_for_broker,0,none,1:090111,no
+TEST-11,Quantity mismatch on line 2,yes,human_review,1,quantity (line 2),1:940521 | 2:851830 | 3:610910,no
+TEST-12,Line total wrong on line 1,yes,human_review,1,line_total (line 1),1:620342 | 2:610910,no
+TEST-13,Invoice total wrong,yes,human_review,1,total_value,1:848210 | 2:392321,no
+TEST-14,Net weight above gross on line 2,yes,human_review,1,weight (line 2),1:940521 | 2:950300,no
+TEST-15,Total gross weight wrong,yes,human_review,1,total_gross_weight,1:940360 | 2:090111,no
+TEST-16,Origin mismatch IN vs TR,yes,human_review,1,origin,1:420221 | 2:610910,no
+TEST-17,Packing list missing line 3,yes,human_review,1,line_count,1:851830 | 2:940521 | 3:950300,no
+TEST-18,Restricted goods: wine on line 2,yes,human_review,0,restricted (line 2),1:610910 | 2:220421,no
+TEST-19,Vague description on line 2 ('Spare parts'),yes,human_review,0,needs_review or low confidence (line 2),1:940521 | 2:no clear code,yes
+TEST-20,Product not in test tariff (kitchen knives),yes,human_review,0,"needs_review, low confidence or not in tariff (line 1)",1:no clear code,yes
+TEST-21,Restricted goods: cosmetics on line 1,yes,human_review,0,restricted (line 1),1:330499 | 2:620342,no
+TEST-22,"Combined: quantity line 3, line total line 2, origin VN vs CN",yes,human_review,3,line_total (line 2) | quantity (line 3) | origin,1:090111 | 2:940360 | 3:950300,no
